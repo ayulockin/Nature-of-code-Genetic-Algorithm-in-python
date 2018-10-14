@@ -1,6 +1,6 @@
 ## Ayush Thakur
 
-## A class to describe genotype | data or genetic information
+## A class to describe genotype || data or genetic information
 
 import random
 
