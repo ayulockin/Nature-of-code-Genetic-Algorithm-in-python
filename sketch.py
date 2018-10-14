@@ -8,19 +8,6 @@ mutationRate = 0.01
 
 population = Population.Population(target, mutationRate, popMax)
 
-while(not population.isFinished()):
-    ## Generate new mating pool
-    population.naturalSelection()
-    ## Create next Generation
-    population.generate()
-    ## Calculate fitness
-    population.calcFitness()
-    ## evaluate
-    population.evaluate()
-
-    displayInfo()
-
-
 def displayInfo():
     answer = population.getBest()
     print('*********************************************')
@@ -32,5 +19,16 @@ def displayInfo():
     print('\n')
     print('All Phrases:\n ', population.allPhrases())
     print('*********************************************')
-    
-    
+
+
+while(not population.isFinished()):
+    ## Generate new mating pool
+    population.naturalSelection()
+    ## Create next Generation
+    population.generate()
+    ## Calculate fitness
+    population.calcFitness()
+    ## evaluate
+    population.evaluate()
+
+    displayInfo()

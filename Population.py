@@ -31,23 +31,29 @@ class Population:
         for i in range(len(self.population)):
              if(self.population[i].fitness > maxFitness):
                  maxFitness = self.population[i].fitness
-        print(maxFitness)
-        
-        for i in range(len(self.population)):
-            fitness = self.population[i].fitness/(maxFitness+1)
-            n = round(fitness*100)
+        #print(maxFitness)
 
-            for j in range(n):
+        if(maxFitness != 0.0):
+            for i in range(len(self.population)):
+                fitness = self.population[i].fitness/(maxFitness)
+                n = round(fitness*100)
+            
+                for j in range(n):
+                    self.matingPool.append(self.population[i])
+
+        else:
+            for i in range(len(self.population)):
                 self.matingPool.append(self.population[i])
+            
 
 
     ### new generation
 
     def generate(self):
         for i in range(len(self.population)):
-            a = random.randint(0, len(self.matingPool))
-            b = random.randint(0, len(self.matingPool))
-            print(a)
+            a = random.randint(0, len(self.matingPool)-1)
+            b = random.randint(0, len(self.matingPool)-1)
+            #print(a)
 
             partnerA = self.matingPool[a]
             partnerB = self.matingPool[b]
